@@ -1,5 +1,6 @@
 package com.example.demofap.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -38,6 +39,7 @@ public class Account {
     @JoinTable(name = "account_role", joinColumns = {@JoinColumn(name = "account_id")},
             inverseJoinColumns = {@JoinColumn(name = "roles_id")}
     )
+    @JsonManagedReference
     private Set<Role> roles;
 
 }

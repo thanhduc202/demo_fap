@@ -1,5 +1,6 @@
 package com.example.demofap.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -38,9 +39,11 @@ public class Lecturer {
 
     @OneToMany(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "lecturer_id", referencedColumnName = "lecturer_id")
+    @JsonManagedReference
     private List<Group> groups;
 
     @OneToMany(cascade = CascadeType.PERSIST)
+    @JsonManagedReference
     @JoinColumn(name = "lecturer_id", referencedColumnName = "lecturer_id")
     private List<Session> sessions;
 }

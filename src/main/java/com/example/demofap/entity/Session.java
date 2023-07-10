@@ -1,5 +1,7 @@
 package com.example.demofap.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -38,14 +40,16 @@ public class Session {
 
     @OneToMany(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "session_id", referencedColumnName = "session_id")
+    @JsonManagedReference
     private List<Group> groups;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "lecturer_id", referencedColumnName = "lecturer_id")
-
+    @JsonBackReference
     private Lecturer lecturer;
 
     @OneToMany(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "session_id", referencedColumnName = "session_id")
+    @JsonManagedReference
     private List<Attendance> attendances;
 }

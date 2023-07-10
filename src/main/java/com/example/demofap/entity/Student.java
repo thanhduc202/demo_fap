@@ -1,5 +1,6 @@
 package com.example.demofap.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -38,6 +39,7 @@ public class Student {
     private String email;
 
     @ManyToMany(mappedBy = "students")
+    @JsonBackReference
     private Set<Group> groups;
 
     @OneToMany(cascade = CascadeType.PERSIST)

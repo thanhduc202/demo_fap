@@ -1,12 +1,11 @@
 package com.example.demofap.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -28,9 +27,11 @@ public class Attendance {
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "session_id", referencedColumnName = "session_id")
+    @JsonBackReference
     private Session session;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
+    @JsonBackReference
     @JoinColumn(name = "student_id", referencedColumnName = "student_id")
     private Student student;
 }
