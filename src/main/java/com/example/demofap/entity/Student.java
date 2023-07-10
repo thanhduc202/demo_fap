@@ -8,21 +8,22 @@ import lombok.Setter;
 
 import java.time.Instant;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-@Table(name = "lecturer")
-public class Lecturer {
+@Table(name = "student")
+public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "lecturer_id")
+    @Column(name = "student_id")
     private Long id;
 
-    @Column(name = "lecturer_name")
-    private String lecturerName;
+    @Column(name = "student_name")
+    private String name;
 
     @Column(name = "dob")
     private Instant dob;
@@ -30,17 +31,16 @@ public class Lecturer {
     @Column(name = "gender")
     private String gender;
 
-    @Column(name = "email")
-    private String email;
-
     @Column(name = "image")
     private String image;
 
-    @OneToMany(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "lecturer_id", referencedColumnName = "lecturer_id")
-    private List<Group> groups;
+    @Column(name = "email")
+    private String email;
+
+    @ManyToMany(mappedBy = "students")
+    private Set<Group> groups;
 
     @OneToMany(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "lecturer_id", referencedColumnName = "lecturer_id")
-    private List<Session> sessions;
+    @JoinColumn(name = "student_id", referencedColumnName = "student_id")
+    private List<Attendance> attendances;
 }
