@@ -35,11 +35,10 @@ public class Session {
     @Column(name = "status")
     private Long status;
 
-    @Column(name = "numberOfSlot")
+    @Column(name = "number_Of_Slot")
     private Long num;
 
-    @OneToMany(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "session_id", referencedColumnName = "session_id")
+    @OneToMany(mappedBy = "session", cascade = CascadeType.PERSIST)
     @JsonManagedReference
     private List<Group> groups;
 
@@ -48,8 +47,7 @@ public class Session {
     @JsonBackReference
     private Lecturer lecturer;
 
-    @OneToMany(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "session_id", referencedColumnName = "session_id")
+    @OneToMany(mappedBy = "session", cascade = CascadeType.PERSIST)
     @JsonManagedReference
     private List<Attendance> attendances;
 }

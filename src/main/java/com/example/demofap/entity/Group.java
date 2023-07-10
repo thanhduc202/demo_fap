@@ -18,7 +18,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Getter
 @Setter
-@Table(name = "groupOf")
+@Table(name = "group_Of")
 public class Group {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,7 +39,7 @@ public class Group {
     private Lecturer lecturer;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(name = "groups_student", joinColumns = {@JoinColumn(name = "group_id")},
+    @JoinTable(name = "group_student", joinColumns = {@JoinColumn(name = "group_id")},
             inverseJoinColumns = {@JoinColumn(name = "student_id")}
     )
     @JsonManagedReference

@@ -1,5 +1,6 @@
 package com.example.demofap.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -29,10 +30,12 @@ public class Account {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "student_id")
+    @JsonBackReference
     private Student student;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "lecturer_id")
+    @JsonBackReference
     private Lecturer lecturer;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)

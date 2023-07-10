@@ -37,13 +37,11 @@ public class Lecturer {
     @Column(name = "image")
     private String image;
 
-    @OneToMany(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "lecturer_id", referencedColumnName = "lecturer_id")
+    @OneToMany(mappedBy = "lecturer", cascade = CascadeType.PERSIST)
     @JsonManagedReference
     private List<Group> groups;
 
-    @OneToMany(cascade = CascadeType.PERSIST)
+    @OneToMany(mappedBy = "lecturer", cascade = CascadeType.PERSIST)
     @JsonManagedReference
-    @JoinColumn(name = "lecturer_id", referencedColumnName = "lecturer_id")
     private List<Session> sessions;
 }
