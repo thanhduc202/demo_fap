@@ -1,13 +1,15 @@
 package com.example.demofap.entity;
 
+import com.example.demofap.dto.request.AccountInfoRequest;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import jakarta.persistence.*;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.*;
 import java.util.Set;
 
 @Entity
@@ -45,4 +47,8 @@ public class Account {
     @JsonManagedReference
     private Set<Role> roles;
 
+    public Account(AccountInfoRequest accountInfoRequest) {
+        this.username = accountInfoRequest.getUsername();
+        this.password = accountInfoRequest.getPassword();
+    }
 }

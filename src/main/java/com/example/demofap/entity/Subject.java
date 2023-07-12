@@ -1,12 +1,13 @@
 package com.example.demofap.entity;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import jakarta.persistence.*;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
@@ -23,7 +24,7 @@ public class Subject {
     @Column(name = "subject_name")
     private String subjectName;
 
-    @Column(name = "numberOfSlots")
+    @Column(name = "number_Of_Slots")
     private Long numberOfSlots;
 
     @OneToMany(cascade = CascadeType.ALL)
