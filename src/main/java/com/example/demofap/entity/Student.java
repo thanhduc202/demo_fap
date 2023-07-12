@@ -1,5 +1,6 @@
 package com.example.demofap.entity;
 
+import com.example.demofap.dto.request.StudentCreateRequest;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import lombok.AllArgsConstructor;
@@ -46,4 +47,11 @@ public class Student {
     @OneToMany(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "student_id", referencedColumnName = "student_id")
     private List<Attendance> attendances;
+
+    public Student(StudentCreateRequest studentCreateRequest) {
+        this.name = studentCreateRequest.getName();
+        this.dob = Instant.parse(studentCreateRequest.getDob());
+        this.gender = studentCreateRequest.getGender();
+        this.email = studentCreateRequest.getMail();
+    }
 }

@@ -1,7 +1,9 @@
 package com.example.demofap.controller;
 
 import com.example.demofap.dto.request.AccountInfoRequest;
+import com.example.demofap.dto.request.StudentCreateRequest;
 import com.example.demofap.dto.response.AccountInfoResponse;
+import com.example.demofap.dto.response.StudentCreateResponse;
 import com.example.demofap.dto.response.TokenResponse;
 import com.example.demofap.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,5 +29,10 @@ public class AccountController {
     @PostMapping("/auth/login")
     ResponseEntity<TokenResponse> authenticate(@RequestBody AccountInfoRequest accountInfoRequest) {
         return accountService.login(accountInfoRequest);
+    }
+
+    @PostMapping("auth/register")
+    ResponseEntity<AccountInfoResponse> register(@RequestBody StudentCreateRequest studentCreateRequest,AccountInfoRequest accountInfoRequest ){
+        return accountService.register(studentCreateRequest, accountInfoRequest);
     }
 }

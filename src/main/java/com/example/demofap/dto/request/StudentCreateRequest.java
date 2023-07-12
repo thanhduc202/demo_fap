@@ -5,14 +5,16 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-
-
+import java.time.Instant;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class AccountInfoRequest {
-    private String username;
+public class StudentCreateRequest {
+    private String mail;
     private String password;
+    private String dob;
+    private String name;
+    private String gender;
 }

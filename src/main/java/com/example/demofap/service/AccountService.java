@@ -1,7 +1,9 @@
 package com.example.demofap.service;
 
 import com.example.demofap.dto.request.AccountInfoRequest;
+import com.example.demofap.dto.request.StudentCreateRequest;
 import com.example.demofap.dto.response.AccountInfoResponse;
+import com.example.demofap.dto.response.StudentCreateResponse;
 import com.example.demofap.dto.response.TokenResponse;
 import org.springframework.http.ResponseEntity;
 
@@ -12,4 +14,6 @@ public interface AccountService {
     List<AccountInfoResponse> findAllUser();
 
     ResponseEntity<TokenResponse> login(AccountInfoRequest accountInfoRequest);
+
+    ResponseEntity<AccountInfoResponse> register(StudentCreateRequest studentCreateRequest, AccountInfoRequest accountInfoRequest);
 }
