@@ -23,11 +23,10 @@ public class AccountInfoResponse {
     private Set<Role> role;
     private Long dob;
 
-    public AccountInfoResponse(Student student, Account account) {
-        this.id = student.getId();
-        this.username = student.getName();
-        this.dob = student.getDob().toEpochMilli();
+    public AccountInfoResponse(Account account) {
+        this.id = account.getId();
+        this.username = account.getUsername();
         this.role = account.getRoles();
-
+        this.dob = account.getStudent().getDob().toEpochMilli();
     }
 }

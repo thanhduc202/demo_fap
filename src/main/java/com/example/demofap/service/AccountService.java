@@ -15,5 +15,5 @@ public interface AccountService {
 
     ResponseEntity<TokenResponse> login(AccountInfoRequest accountInfoRequest);
 
-    ResponseEntity<AccountInfoResponse> register(StudentCreateRequest studentCreateRequest, AccountInfoRequest accountInfoRequest);
+    ResponseEntity<AccountInfoResponse> register(StudentCreateRequest studentCreateRequest);
 }

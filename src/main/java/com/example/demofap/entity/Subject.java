@@ -24,7 +24,7 @@ public class Subject {
     @Column(name = "subject_name")
     private String subjectName;
 
-    @Column(name = "number_Of_Slots")
+    @Column(name = "number_of_slots")
     private Long numberOfSlots;
 
     @OneToMany(cascade = CascadeType.ALL)

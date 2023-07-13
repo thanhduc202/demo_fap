@@ -31,8 +31,8 @@ public class AccountController {
         return accountService.login(accountInfoRequest);
     }
 
-    @PostMapping("auth/register")
+    @PostMapping("/auth/register")
     ResponseEntity<AccountInfoResponse> register(@RequestBody StudentCreateRequest studentCreateRequest,AccountInfoRequest accountInfoRequest ){
-        return accountService.register(studentCreateRequest, accountInfoRequest);
+        return accountService.register(studentCreateRequest);
     }
 }

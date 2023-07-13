@@ -1,5 +1,6 @@
 package com.example.demofap.entity;
 
+import com.example.demofap.dto.request.RoleInsertRequest;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import lombok.AllArgsConstructor;
@@ -28,4 +29,9 @@ public class Role {
     @ManyToMany(mappedBy = "roles")
     @JsonBackReference
     private Set<Account> accounts;
+
+    public Role(RoleInsertRequest roleInsertRequest) {
+        this.id = roleInsertRequest.getRoleId();
+        this.roleName = roleInsertRequest.getRoleName();
+    }
 }

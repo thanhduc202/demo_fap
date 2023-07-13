@@ -9,7 +9,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class AccountInfoRequest {
-    private String username;
-    private String password;
+public class RoleInsertRequest {
+    private Long roleId;
+    private String roleName;
 }
