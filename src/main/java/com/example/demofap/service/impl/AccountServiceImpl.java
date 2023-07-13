@@ -80,10 +80,10 @@ public class AccountServiceImpl implements AccountService {
         if(getRoleDefault == null){
             throw new NotFoundException("Not found role name");
         }
-        Account account = new Account(accountInfoRequest);
+        Account account = new Account();
         account.setLecturer(null);
         account.setStudent(s);
-        account.setUsername(studentCreateRequest.getName());
+        account.setUsername(studentCreateRequest.getMail());
         account.setPassword(studentCreateRequest.getPassword());
         Set<Role> roleSet = new HashSet<>();
         roleSet.add(getRoleDefault);
