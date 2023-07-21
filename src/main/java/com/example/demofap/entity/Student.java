@@ -50,7 +50,6 @@ public class Student {
 
     public Student(StudentCreateRequest studentCreateRequest) {
         this.name = studentCreateRequest.getName();
-        this.dob = Instant.parse(studentCreateRequest.getDob());
         this.gender = studentCreateRequest.getGender();
         this.email = studentCreateRequest.getMail();
     }

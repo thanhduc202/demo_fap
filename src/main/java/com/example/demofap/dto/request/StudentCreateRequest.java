@@ -14,7 +14,6 @@ import java.time.Instant;
 public class StudentCreateRequest {
     private String mail;
     private String password;
-    private String dob;
     private String name;
     private String gender;
 }

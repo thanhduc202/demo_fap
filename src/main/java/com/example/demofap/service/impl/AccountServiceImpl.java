@@ -68,7 +68,7 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public ResponseEntity<AccountInfoResponse> register(StudentCreateRequest studentCreateRequest) {
+    public ResponseEntity<StudentCreateResponse> register(StudentCreateRequest studentCreateRequest) {
         Account foundAcc =accountRepository.findByUsername(studentCreateRequest.getName());
         if (foundAcc != null) {
             throw new NotFoundException("Username have existed!");
@@ -89,7 +89,7 @@ public class AccountServiceImpl implements AccountService {
         roleSet.add(getRoleDefault);
         account.setRoles(roleSet);
         Account result = accountRepository.save(account);
-        return ResponseEntity.status(HttpStatus.OK).body(new AccountInfoResponse(result));
+        return ResponseEntity.status(HttpStatus.OK).body(new StudentCreateResponse(s));
     }
 
 

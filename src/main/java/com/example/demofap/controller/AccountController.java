@@ -32,7 +32,7 @@ public class AccountController {
     }
 
     @PostMapping("/auth/register")
-    ResponseEntity<AccountInfoResponse> register(@RequestBody StudentCreateRequest studentCreateRequest,AccountInfoRequest accountInfoRequest ){
+    ResponseEntity<StudentCreateResponse> register(@RequestBody StudentCreateRequest studentCreateRequest,AccountInfoRequest accountInfoRequest ){
         return accountService.register(studentCreateRequest);
     }
 }
