@@ -25,7 +25,7 @@ public class Session {
     private Long id;
 
     @Column(name = "time_slot")
-    private Instant timeSlot;
+    private String timeSlot;
 
     @Column(name = "date")
     private Instant date;
@@ -39,9 +39,12 @@ public class Session {
     @Column(name = "number_Of_Slot")
     private Long num;
 
-    @OneToMany(mappedBy = "session", cascade = CascadeType.PERSIST)
-    @JsonManagedReference
-    private List<Group> groups;
+
+
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "group_id", referencedColumnName = "group_id")
+    @JsonBackReference
+    private Group group;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "lecturer_id", referencedColumnName = "lecturer_id")

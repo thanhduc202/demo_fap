@@ -11,6 +11,7 @@ import lombok.Setter;
 
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -45,8 +46,7 @@ public class Group {
     @JsonManagedReference
     private Set<Student> students;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "session_id", referencedColumnName = "session_id")
-    @JsonBackReference
-    private Session session;
+    @OneToMany(mappedBy = "group", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
+    private List<Session> sessions;
 }
