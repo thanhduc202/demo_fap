@@ -6,8 +6,9 @@ import com.example.demofap.dto.response.GroupResponse;
 import com.example.demofap.entity.Group;
 import com.example.demofap.service.GroupService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/group")
@@ -17,7 +18,7 @@ public class GroupController {
     private GroupService groupService;
 
     @GetMapping("/view")
-    ResponseEntity<GroupResponse> findGroupByStudentIdGetFromToken(Long studentId, @RequestHeader("Authorization") String token){
+    List<GroupResponse> findGroupByStudentIdGetFromToken(Long studentId, @RequestHeader("Authorization") String token){
         return groupService.findGroupByStudentId(studentId,token);
     }
 
