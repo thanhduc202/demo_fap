@@ -88,9 +88,7 @@ public class AccountServiceImpl implements AccountService {
         Set<Role> roleSet = new HashSet<>();
         roleSet.add(getRoleDefault);
         account.setRoles(roleSet);
-        Account result = accountRepository.save(account);
+        accountRepository.save(account);
         return ResponseEntity.status(HttpStatus.OK).body(new StudentCreateResponse(s));
     }
-
-
 }

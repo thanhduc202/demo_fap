@@ -25,10 +25,6 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public List<StudentCreateResponse> getAllStudent() {
-        List<StudentCreateResponse> lstStudent = studentRepository.getAllStudent();
-        if(lstStudent.size() <0){
-            throw new NotFoundException("Don't have any student");
-        }
-        return lstStudent;
+        return studentRepository.getAllStudent();
     }
 }
